@@ -39,14 +39,15 @@ export class PostPage {
         return cy.get('[data-test-button="close-publish-flow"]').first().click({ force: true});
     }
 
-    static lastPostCreated() {
-        // Primero, verifica si existe algún elemento en la lista de posts
+    static lastPostCreated(title) {
+        // Verifica si existe algún elemento en la lista de posts
         cy.get('body').then(($body) => {
             if ($body.find('div.gh-posts-list-item-group').length) {
                 // Si existe, selecciona el primer elemento en la lista
                 cy.get('li.gh-list-row.gh-posts-list-item.gh-post-list-plain-status').first().within(() => {
-                    cy.get('a.ember-view.permalink.gh-list-data.gh-post-list-title').first().within(() => {
-                        return cy.get('h3.gh-content-entry-title').should('be.visible');
+                    // Encuentra el post por data-test-post-id y guarda su ID
+                    cy.get('a').first().then(($post) => {
+                        cy.get('h3.gh-content-entry-title').first().should('include.text', title);
                     });
                 });
             }
