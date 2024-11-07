@@ -46,7 +46,7 @@ export class PostPage {
                 // Si existe, selecciona el primer elemento en la lista
                 cy.get('li.gh-list-row.gh-posts-list-item.gh-post-list-plain-status').first().within(() => {
                     // Encuentra el post por data-test-post-id y guarda su ID
-                    cy.get('a').first().then(($post) => {
+                    cy.get('a').first().then(() => {
                         cy.get('h3.gh-content-entry-title').first().should('include.text', title);
                     });
                 });

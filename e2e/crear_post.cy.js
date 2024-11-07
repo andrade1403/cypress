@@ -29,7 +29,7 @@ describe('Escenarios E2E para Ghost', function () {
         PostPage.creationPostPage().should('have.value', '');
 
         //When escriba el titulo del post
-        let titulo = 'Prueba';
+        let titulo = 'Daniel';
         PostPage.writeTitle(titulo);
 
         //And el contenido del post
