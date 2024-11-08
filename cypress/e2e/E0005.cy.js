@@ -52,7 +52,7 @@ describe('Escenarios E2E para Ghost', function () {
         PostPage.closePublishModal();
 
         //Then debería ver el post publicado en la lista de posts
-        PostPage.lastPostCreated(titulo, true);
+        PostPage.lastPostCreated(titulo, 'notClick');
 
         //When le de click derecho en el post creado
         PostPage.lastPostCreated(titulo, 'rightClick');

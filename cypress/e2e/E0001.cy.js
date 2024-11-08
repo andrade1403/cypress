@@ -53,6 +53,6 @@ describe('Escenarios E2E para Ghost', function () {
         PostPage.closePublishModal();
 
         //Then debería ver el post publicado en la lista de posts
-        PostPage.lastPostCreated(titulo);
+        PostPage.lastPostCreated(titulo, 'notClick');
     });
 });
