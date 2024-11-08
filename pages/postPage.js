@@ -52,10 +52,14 @@ export class PostPage {
                         });
                     }
 
-                    else {
+                    else if(flag === 'click') {
                         cy.get('a').first().then(() => {
-                            cy.get('h3.gh-content-entry-title').click({ force: true });
+                            cy.get('h3.gh-content-entry-title').first().click({ force: true });
                         });
+                    }
+
+                    else {
+                        cy.get('h3.gh-content-entry-title').first().rightclick({ force: true });
                     }
                 });
             }
@@ -72,5 +76,9 @@ export class PostPage {
 
     static viewContent(content) {
         return cy.get('p[data-koenig-dnd-droppable="true"]').first().should('be.visible').should('include.text', content);
+    }
+
+    static deletePost() {
+        return cy.get('[data-test-button="delete"]').first().click({ force: true });
     }
 }
