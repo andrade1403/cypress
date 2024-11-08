@@ -93,10 +93,10 @@ describe('Escenarios E2E para Ghost', function () {
         //Then debería ver el post publicado en la lista de posts
         PostPage.lastPostCreated(titulo, 'notClick');
 
-        // //When le de click en el post editado
+        //When le de click en el post editado
         PostPage.lastPostCreated(titulo, 'click');
 
-        // //Then el contenido del post debería ser el editado
+        //Then el contenido del post debería ser el editado
         PostPage.viewContent(contenido);
     });
 
