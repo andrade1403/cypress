@@ -69,4 +69,8 @@ export class PostPage {
     static clickBackToPosts() {
         return cy.get('[data-test-link="posts"]').first().click({ force: true });
     }
+
+    static viewContent(content) {
+        return cy.get('p[data-koenig-dnd-droppable="true"]').first().should('be.visible').should('include.text', content);
+    }
 }

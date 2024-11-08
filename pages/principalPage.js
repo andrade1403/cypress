@@ -13,8 +13,4 @@ export class PrincipalPage {
     static clickTags() {
         return cy.get('[data-test-nav="tags"]').click({ force: true });
     }
-
-    static clickSitePage() {
-        return cy.get('[data-test-nav="site"]').click({ force: true });
-    }
 }

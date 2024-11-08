@@ -218,7 +218,7 @@ describe('Escenarios E2E para Ghost', function () {
         PostPage.closePublishModal();
 
         //Then debería ver el post publicado en la lista de posts
-       PostPage.lastPostCreated(titulo, 'notClick');
+        PostPage.lastPostCreated(titulo, 'notClick');
 
         //When le de click en el post creado
         PostPage.lastPostCreated(titulo, 'click');
@@ -233,6 +233,7 @@ describe('Escenarios E2E para Ghost', function () {
 
         //And le de click en el boton de update
         PostPage.updatePostButton();
+        cy.wait(1000);
 
         //And le de click en el boton de devolverme a la lista de posts
         PostPage.clickBackToPosts();
@@ -240,7 +241,10 @@ describe('Escenarios E2E para Ghost', function () {
         //Then debería ver el post publicado en la lista de posts
         PostPage.lastPostCreated(tituloEditado, 'notClick');
 
-        //When le de click en viewsite
-        PrincipalPage.clickSitePage();
+        //When le de click en el post editado
+        PostPage.lastPostCreated(tituloEditado, 'click');
+
+        //Then el contenido del post debería ser el editado
+        PostPage.viewContent(contenidoEditado);
     });
 });
