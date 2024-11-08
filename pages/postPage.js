@@ -19,6 +19,10 @@ export class PostPage {
         return cy.get('p[data-koenig-dnd-droppable="true"]').first().type(content);
     }
 
+    static clearContent() {
+        return cy.get('p[data-koenig-dnd-droppable="true"]').first().clear();
+    }
+
     static creationPostPage() {
         return cy.get('[data-test-editor-title-input=""]').should('be.visible');
     }

@@ -1,6 +1,6 @@
 export class PrincipalPage {
     static getTitle() {
-        return cy.get('.gh-nav-menu-details-sitetitle');
+        return cy.get('.gh-nav-menu-details-sitetitle', { timeout: 10000 });
     }
     static clickPosts() {
         return cy.get('[data-test-nav="posts"]').click({ force: true });
