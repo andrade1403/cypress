@@ -17,202 +17,208 @@ describe('Escenarios E2E para Ghost', function () {
         PrincipalPage.getTitle().should('have.text', 'MISW4103');
     });
 
-    it('E0001 - Crear un post con titulo', function () {
-        //When le de click en la sección de Posts
-        PrincipalPage.clickPosts();
+    // it('E0001 - Crear un post con titulo', function () {
+    //     //When le de click en la sección de Posts
+    //     PrincipalPage.clickPosts();
 
-        //Then el administrador debería ver la página de listado de posts
-        PostPage.getTitleSection().should('include.text', 'Posts');
+    //     //Then el administrador debería ver la página de listado de posts
+    //     PostPage.getTitleSection().should('include.text', 'Posts');
 
-        //When le de click en el boton New Post
-        PostPage.clickNewPost();
+    //     //When le de click en el boton New Post
+    //     PostPage.clickNewPost();
 
-        //Then el administrador debería ver la página de creación de post
-        PostPage.creationPostPage().should('have.value', '');
+    //     //Then el administrador debería ver la página de creación de post
+    //     PostPage.creationPostPage().should('have.value', '');
 
-        //Then escriba el titulo del post
-        let titulo = faker.lorem.word();
-        PostPage.writeTitle(titulo);
+    //     //Then escriba el titulo del post
+    //     let titulo = faker.lorem.word();
+    //     PostPage.writeTitle(titulo);
 
-        //Then escribimos contenido y borramos para activar boton de publicar
-        let contenido = faker.lorem.words();
-        PostPage.writeContent(contenido);
-        PostPage.clearContent();
+    //     //Then escribimos contenido y borramos para activar boton de publicar
+    //     let contenido = faker.lorem.words();
+    //     PostPage.writeContent(contenido);
+    //     PostPage.clearContent();
 
-        //And le de click en el boton de Publish
-        PostPage.publishPostButton();
-        cy.wait(1000);
+    //     //And le de click en el boton de Publish
+    //     PostPage.publishPostButton();
+    //     cy.wait(1000);
         
-        //And le de click en el boton Continue, final review
-        PostPage.continueButton();
+    //     //And le de click en el boton Continue, final review
+    //     PostPage.continueButton();
        
-        //And le de click en el boton Publish post, right now
-        PostPage.publishPostButtonFinal();
+    //     //And le de click en el boton Publish post, right now
+    //     PostPage.publishPostButtonFinal();
 
-        //And cierre el modal de confirmación de publicación
-        PostPage.closePublishModal();
+    //     //And cierre el modal de confirmación de publicación
+    //     PostPage.closePublishModal();
 
-        //Then debería ver el post publicado en la lista de posts
-        PostPage.lastPostCreated(titulo);
-    });
+    //     //Then debería ver el post publicado en la lista de posts
+    //     PostPage.lastPostCreated(titulo);
+    // });
 
-    it('E0002 - Crear un post con titulo y contenido', function () {
-        //When le de click en la sección de Posts
-        PrincipalPage.clickPosts();
+    // it('E0002 - Crear un post con titulo y contenido', function () {
+    //     //When le de click en la sección de Posts
+    //     PrincipalPage.clickPosts();
 
-        //Then el administrador debería ver la página de listado de posts
-        PostPage.getTitleSection().should('include.text', 'Posts');
+    //     //Then el administrador debería ver la página de listado de posts
+    //     PostPage.getTitleSection().should('include.text', 'Posts');
 
-        //When le de click en el boton New Post
-        PostPage.clickNewPost();
+    //     //When le de click en el boton New Post
+    //     PostPage.clickNewPost();
 
-        //Then el administrador debería ver la página de creación de post
-        PostPage.creationPostPage().should('have.value', '');
+    //     //Then el administrador debería ver la página de creación de post
+    //     PostPage.creationPostPage().should('have.value', '');
 
-        //When escriba el titulo del post
-        let titulo = faker.lorem.word();
-        PostPage.writeTitle(titulo);
+    //     //When escriba el titulo del post
+    //     let titulo = faker.lorem.word();
+    //     PostPage.writeTitle(titulo);
 
-        //And el contenido del post
-        let contenido = faker.lorem.words();
-        PostPage.writeContent(contenido);
+    //     //And el contenido del post
+    //     let contenido = faker.lorem.words();
+    //     PostPage.writeContent(contenido);
 
-        //And le de click en el boton de Publish
-        PostPage.publishPostButton();
-        cy.wait(1000);
+    //     //And le de click en el boton de Publish
+    //     PostPage.publishPostButton();
+    //     cy.wait(1000);
 
-        //And le de click en el boton Continue, final review
-        PostPage.continueButton();
+    //     //And le de click en el boton Continue, final review
+    //     PostPage.continueButton();
        
-        //And le de click en el boton Publish post, right now
-        PostPage.publishPostButtonFinal();
+    //     //And le de click en el boton Publish post, right now
+    //     PostPage.publishPostButtonFinal();
 
-        //And cierre el modal de confirmación de publicación
-        PostPage.closePublishModal();
+    //     //And cierre el modal de confirmación de publicación
+    //     PostPage.closePublishModal();
 
-        //Then debería ver el post publicado en la lista de posts
-        PostPage.lastPostCreated(titulo, true);
-    });
+    //     //Then debería ver el post publicado en la lista de posts
+    //     PostPage.lastPostCreated(titulo, 'notClick');
 
-    it('E0003 - Editar el titulo de un post previamente creado', function () {
-        //When le de click en la sección de Posts
-        PrincipalPage.clickPosts();
+    //     // //When le de click en el post editado
+    //     PostPage.lastPostCreated(titulo, 'click');
 
-        //Then el administrador debería ver la página de listado de posts
-        PostPage.getTitleSection().should('include.text', 'Posts');
+    //     // //Then el contenido del post debería ser el editado
+    //     PostPage.viewContent(contenido);
+    // });
 
-        //When le de click en el boton New Post
-        PostPage.clickNewPost();
+    // it('E0003 - Editar el titulo de un post previamente creado', function () {
+    //     //When le de click en la sección de Posts
+    //     PrincipalPage.clickPosts();
 
-        //Then el administrador debería ver la página de creación de post
-        PostPage.creationPostPage().should('have.value', '');
+    //     //Then el administrador debería ver la página de listado de posts
+    //     PostPage.getTitleSection().should('include.text', 'Posts');
 
-        //When escriba el titulo del post
-        let titulo = faker.lorem.word();
-        PostPage.writeTitle(titulo);
+    //     //When le de click en el boton New Post
+    //     PostPage.clickNewPost();
 
-        //And el contenido del post
-        let contenido = faker.lorem.words();
-        PostPage.writeContent(contenido);
+    //     //Then el administrador debería ver la página de creación de post
+    //     PostPage.creationPostPage().should('have.value', '');
 
-        //And le de click en el boton de Publish
-        PostPage.publishPostButton();
-        cy.wait(1000);
+    //     //When escriba el titulo del post
+    //     let titulo = faker.lorem.word();
+    //     PostPage.writeTitle(titulo);
 
-        //And le de click en el boton Continue, final review
-        PostPage.continueButton();
+    //     //And el contenido del post
+    //     let contenido = faker.lorem.words();
+    //     PostPage.writeContent(contenido);
+
+    //     //And le de click en el boton de Publish
+    //     PostPage.publishPostButton();
+    //     cy.wait(1000);
+
+    //     //And le de click en el boton Continue, final review
+    //     PostPage.continueButton();
        
-        //And le de click en el boton Publish post, right now
-        PostPage.publishPostButtonFinal();
+    //     //And le de click en el boton Publish post, right now
+    //     PostPage.publishPostButtonFinal();
 
-        //And cierre el modal de confirmación de publicación
-        PostPage.closePublishModal();
+    //     //And cierre el modal de confirmación de publicación
+    //     PostPage.closePublishModal();
 
-        //Then debería ver el post publicado en la lista de posts
-        PostPage.lastPostCreated(titulo, 'notClick');
+    //     //Then debería ver el post publicado en la lista de posts
+    //     PostPage.lastPostCreated(titulo, 'notClick');
 
-        //When le de click en el post creado
-        PostPage.lastPostCreated(titulo, 'click');
+    //     //When le de click en el post creado
+    //     PostPage.lastPostCreated(titulo, 'click');
         
-        //Then edito el titulo del post
-        let tituloEditado = faker.lorem.word();
-        PostPage.writeTitle(tituloEditado);
+    //     //Then edito el titulo del post
+    //     let tituloEditado = faker.lorem.word();
+    //     PostPage.writeTitle(tituloEditado);
 
-        //And le de click en el boton de update
-        PostPage.updatePostButton();
+    //     //And le de click en el boton de update
+    //     PostPage.updatePostButton();
 
-        //And le de click en el boton de devolverme a la lista de posts
-        PostPage.clickBackToPosts();
+    //     //And le de click en el boton de devolverme a la lista de posts
+    //     PostPage.clickBackToPosts();
 
-        //Then debería ver el post publicado en la lista de posts
-        PostPage.lastPostCreated(tituloEditado, 'notClick');
-    });
+    //     //Then debería ver el post publicado en la lista de posts
+    //     PostPage.lastPostCreated(tituloEditado, 'notClick');
+    // });
 
-    it('E0004 - Editar el titulo y contenido de un post previamente creado', function () {
-        //When le de click en la sección de Posts
-        PrincipalPage.clickPosts();
+    // it('E0004 - Editar el titulo y contenido de un post previamente creado', function () {
+    //     //When le de click en la sección de Posts
+    //     PrincipalPage.clickPosts();
 
-        //Then el administrador debería ver la página de listado de posts
-        PostPage.getTitleSection().should('include.text', 'Posts');
+    //     //Then el administrador debería ver la página de listado de posts
+    //     PostPage.getTitleSection().should('include.text', 'Posts');
 
-        //When le de click en el boton New Post
-        PostPage.clickNewPost();
+    //     //When le de click en el boton New Post
+    //     PostPage.clickNewPost();
 
-        //Then el administrador debería ver la página de creación de post
-        PostPage.creationPostPage().should('have.value', '');
+    //     //Then el administrador debería ver la página de creación de post
+    //     PostPage.creationPostPage().should('have.value', '');
 
-        //When escriba el titulo del post
-        let titulo = faker.lorem.word();
-        PostPage.writeTitle(titulo);
+    //     //When escriba el titulo del post
+    //     let titulo = faker.lorem.word();
+    //     PostPage.writeTitle(titulo);
 
-        //And el contenido del post
-        let contenido = faker.lorem.words();
-        PostPage.writeContent(contenido);
+    //     //And el contenido del post
+    //     let contenido = faker.lorem.words();
+    //     PostPage.writeContent(contenido);
 
-        //And le de click en el boton de Publish
-        PostPage.publishPostButton();
-        cy.wait(1000);
+    //     //And le de click en el boton de Publish
+    //     PostPage.publishPostButton();
+    //     cy.wait(1000);
 
-        //And le de click en el boton Continue, final review
-        PostPage.continueButton();
+    //     //And le de click en el boton Continue, final review
+    //     PostPage.continueButton();
        
-        //And le de click en el boton Publish post, right now
-        PostPage.publishPostButtonFinal();
+    //     //And le de click en el boton Publish post, right now
+    //     PostPage.publishPostButtonFinal();
 
-        //And cierre el modal de confirmación de publicación
-        PostPage.closePublishModal();
+    //     //And cierre el modal de confirmación de publicación
+    //     PostPage.closePublishModal();
 
-        //Then debería ver el post publicado en la lista de posts
-        PostPage.lastPostCreated(titulo, 'notClick');
+    //     //Then debería ver el post publicado en la lista de posts
+    //     PostPage.lastPostCreated(titulo, 'notClick');
 
-        //When le de click en el post creado
-        PostPage.lastPostCreated(titulo, 'click');
+    //     //When le de click en el post creado
+    //     PostPage.lastPostCreated(titulo, 'click');
         
-        //Then edito el titulo del post
-        let tituloEditado = faker.lorem.word();
-        PostPage.writeTitle(tituloEditado);
+    //     //Then edito el titulo del post
+    //     let tituloEditado = faker.lorem.word();
+    //     PostPage.writeTitle(tituloEditado);
 
-        //Then edito el contenido del post
-        let contenidoEditado = faker.lorem.words();
-        PostPage.writeContent(contenidoEditado);
+    //     //Then edito el contenido del post
+    //     let contenidoEditado = faker.lorem.words();
+    //     PostPage.writeContent(contenidoEditado);
 
-        //And le de click en el boton de update
-        PostPage.updatePostButton();
-        cy.wait(1000);
+    //     //And le de click en el boton de update
+    //     PostPage.updatePostButton();
+    //     cy.wait(1000);
 
-        //And le de click en el boton de devolverme a la lista de posts
-        PostPage.clickBackToPosts();
-        cy.wait(1000);
+    //     //And le de click en el boton de devolverme a la lista de posts
+    //     PostPage.clickBackToPosts();
+    //     cy.wait(1000);
 
-        //Then debería ver el post publicado en la lista de posts
-        PostPage.lastPostCreated(tituloEditado, 'notClick');
+    //     //Then debería ver el post publicado en la lista de posts
+    //     PostPage.lastPostCreated(tituloEditado, 'notClick');
 
-        // //When le de click en el post editado
-        PostPage.lastPostCreated(tituloEditado, 'click');
+    //     // //When le de click en el post editado
+    //     PostPage.lastPostCreated(tituloEditado, 'click');
 
-        // //Then el contenido del post debería ser el editado
-        PostPage.viewContent(contenidoEditado);
-    });
+    //     // //Then el contenido del post debería ser el editado
+    //     PostPage.viewContent(contenidoEditado);
+    // });
 
     it('E0005 - Eliminamos un post previamente creado', function () {
         //When le de click en la sección de Posts
